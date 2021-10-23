@@ -1,0 +1,2 @@
+rootProject.name = "Green Life"
+include ':app'
