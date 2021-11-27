@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.Login"
-    android:background="@color/white">
+    tools:context=".controller.Register">
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="cursive"
         android:padding="10dp"
         android:text="GreenLife"
         android:textColor="@color/design_default_color_primary_dark"
@@ -23,7 +23,7 @@
         android:id="@+id/tvSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="USER LOGIN"
+        android:text="USER REGISTRATION"
         android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <EditText
-        android:id="@+id/etUserName"
+        android:id="@+id/etRUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etRPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -58,14 +58,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/etRUserName" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_primary"
-        android:text="LOGIN"
+        android:text="REGISTER"
         android:textColor="@android:color/background_dark"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,17 +74,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tvRegisterLink"
+        android:id="@+id/tvLoginLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:gravity="center"
-        android:text="New user?\nClick here to register"
+        android:text="Already a user?\nClick here to login"
         android:textColor="@color/design_default_color_primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/etRPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>
