@@ -1,4 +1,4 @@
-package cg.example.greenlife;
+package cg.example.greenlife.api;
 
 import cg.example.greenlife.model.User;
 import okhttp3.ResponseBody;

@@ -1,4 +1,4 @@
-package cg.example.greenlife.controller;
+package cg.example.greenlife.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,19 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import java.io.IOException;
 
 import cg.example.greenlife.R;
-import cg.example.greenlife.RetrofitClient;
-import cg.example.greenlife.model.User;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText etUsername, etPassword;
 
@@ -40,7 +31,7 @@ public class Login extends AppCompatActivity {
         findViewById(R.id.tvRegisterLink).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Login.this, Register.class));
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
     }

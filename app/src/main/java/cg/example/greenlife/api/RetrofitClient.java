@@ -1,4 +1,4 @@
-package cg.example.greenlife;
+package cg.example.greenlife.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

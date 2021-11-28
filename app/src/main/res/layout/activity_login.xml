@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.Login"
+    tools:context=".view.LoginActivity"
     android:background="@color/white">
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/registerAppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvSubtitle"
+        android:id="@+id/registerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="USER LOGIN"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/registerAppTitle" />
 
     <EditText
         android:id="@+id/etUserName"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
 
     <EditText
         android:id="@+id/etPassword"

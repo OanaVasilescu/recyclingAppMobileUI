@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.Register">
+    tools:context=".view.RegisterActivity">
+
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/registerAppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
@@ -20,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvSubtitle"
+        android:id="@+id/registerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="USER REGISTRATION"
@@ -30,10 +31,52 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/registerAppTitle" />
 
     <EditText
-        android:id="@+id/etRUserName"
+        android:id="@+id/registerFirstNameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="First name"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/registerLastNameInput"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
+
+    <EditText
+        android:id="@+id/registerLastNameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Last name"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/registerFirstNameInput"
+        app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
+
+    <EditText
+        android:id="@+id/registerEmailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerFirstNameInput" />
+
+    <EditText
+        android:id="@+id/registerUsernameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -44,10 +87,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/registerEmailInput" />
 
     <EditText
-        android:id="@+id/etRPassword"
+        android:id="@+id/registerPasswordInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -58,10 +101,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/registerUsernameInput" />
+
+    <EditText
+        android:id="@+id/registerPasswordRetype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Retype password"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerPasswordInput" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/registerBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_primary"
@@ -74,7 +131,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tvLoginLink"
+        android:id="@+id/registerGoToLoginLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -84,5 +141,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/registerPasswordRetype" />
 </androidx.constraintlayout.widget.ConstraintLayout>
