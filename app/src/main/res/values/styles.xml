@@ -21,4 +21,10 @@
         <item name="android:background">@drawable/blue_light_gradient</item>
         <item name="android:padding">@dimen/normalPadding</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
 </resources>

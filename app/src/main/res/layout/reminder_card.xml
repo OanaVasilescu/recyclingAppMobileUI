@@ -45,6 +45,6 @@
         android:layout_height="60dp"
         android:layout_centerVertical="true"
         android:elevation="13dp"
-        android:src="@drawable/darkgreenblob" />
+        android:src="@drawable/dark_green_blob" />
 
 </RelativeLayout>

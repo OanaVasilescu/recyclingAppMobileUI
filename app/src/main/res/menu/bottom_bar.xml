@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigationHome"
+        android:icon="@drawable/outline_home_24"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navigationSearch"
+        android:icon="@drawable/outline_qr_code_2_24_white"
+        android:title="Scan barcode" />
+
+    <item
+        android:id="@+id/navigationMyProfile"
+        android:icon="@drawable/outline_person_24"
+        android:title="User" />
+
+</menu>
