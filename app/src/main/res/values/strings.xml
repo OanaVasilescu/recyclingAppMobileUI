@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Green Life</string>
+
+    <string name="reminder_card_title">Reminders</string>
+    <string name="reminder_card_subtitle">Add reminders to know when to throw out trash</string>
+
+    <string name="tutorial_card_title">Tutorials</string>
+    <string name="tutorial_card_subtitle">Now sure how the app works? Click here to find out!</string>
+
+    <string name="info_card_title">Info</string>
+    <string name="info_card_subtitle">About us</string>
 </resources>

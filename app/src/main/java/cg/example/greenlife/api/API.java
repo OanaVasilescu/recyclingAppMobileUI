@@ -12,8 +12,8 @@ public interface API {
             @Body User user
     );
 
-//    @POST("login")
-//    Call<ResponseBody> checkUser (
-//            @Body User user
-//    );
+    @POST("login")
+    Call<ResponseBody> checkUser (
+            @Body User user
+    );
 }
