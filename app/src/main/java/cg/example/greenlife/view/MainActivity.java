@@ -13,7 +13,9 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import cg.example.greenlife.R;
+import cg.example.greenlife.controller.AccountFragment;
 import cg.example.greenlife.controller.HomeFragment;
+import cg.example.greenlife.controller.SearchFragment;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -24,16 +26,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment;
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigationMyProfile:
-                    System.out.println("in item selected");
-//                    this.goToProfilePage(item);
+                    ft.replace(R.id.frame_main, new AccountFragment());
+                    ft.commit();
                     return true;
                 case R.id.navigationHome:
-//                    this.goToHome(item);
+                    ft.replace(R.id.frame_main, new HomeFragment());
+                    ft.commit();
                     return true;
                 case R.id.navigationSearch:
-//                    this.goToScanPage(item);
+                    ft.replace(R.id.frame_main, new SearchFragment());
+                    ft.commit();
                     return true;
             }
             return false;
@@ -46,16 +51,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setContentView(R.layout.activity_main);
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+// Replace the contents of the container with the new fragment
+        ft.replace(R.id.frame_main, new HomeFragment());
+// Complete the changes added above
+        ft.commit();
 
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//// Replace the contents of the container with the new fragment
-//        ft.replace(R.id.frame_main, new HomeFragment());
-//// or ft.add(R.id.your_placeholder, new FooFragment());
-//// Complete the changes added above
-//        ft.commit();
-//
-//
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
