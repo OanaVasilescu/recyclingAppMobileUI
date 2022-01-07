@@ -22,6 +22,9 @@
     <color name="red_darker">#AC070D</color>
 
 
+    <color name="subtitleGrey">#738A97</color>
+
+
     <!--    color for the bottom bar-->
     <color name="bottomNavigationTextColor">#B2B2B2</color>
     <color name="bottomNavigationTintColor">#B2B2B2</color>

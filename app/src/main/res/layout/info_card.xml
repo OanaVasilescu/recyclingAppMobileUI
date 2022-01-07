@@ -20,8 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="50dp"
-            android:orientation="vertical">
+            android:layout_marginLeft="35dp"
+            android:orientation="vertical"
+            android:layout_marginRight="10dp"
+            android:paddingEnd="11dp">
 
             <TextView
                 style="@style/viewParent.headerText"
@@ -34,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/info_card_subtitle"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/subtitleGrey"/>
 
         </LinearLayout>
 
