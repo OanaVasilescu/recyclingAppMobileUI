@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/scanner_view"
+        app:autoFocusButtonColor="@color/baby_powder_white"
+        app:autoFocusButtonVisible="true"
+        app:flashButtonColor="@color/baby_powder_white"
+        app:flashButtonVisible="true"
+        app:maskColor="#8A264653"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/barcode_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scanner_view"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="@string/scan_something"
+        android:textColor="@color/charcoal_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scanner_view"/>
+
+    <TextView
+        android:id="@+id/go_to_instructions_btn"
+        style="@style/profileStyledBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barcode_text"
+        android:text="@string/see_instructions"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barcode_text"
+        android:layout_marginTop="40dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

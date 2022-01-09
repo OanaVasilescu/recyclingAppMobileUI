@@ -3,6 +3,8 @@
     package="cg.example.greenlife">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
         android:allowBackup="true"
@@ -12,8 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GreenLife">
-        <activity android:name=".view.RegisterActivity"></activity>
+        <activity android:name=".view.RegisterActivity"/>
         <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.InstructionsActivity" />
         <activity android:name=".view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import cg.example.greenlife.R;
@@ -56,23 +55,32 @@ public class RegisterActivity extends AppCompatActivity {
         inputs.put(firstName, firstNameString);
         inputs.put(lastName, lastNameString);
 
+        Boolean errorFlag = false;
+
         for (EditText field : inputs.keySet()) {  // check if any fields are empty (all are required)
-            if (inputs.get(field).isEmpty()) {
+            if (inputs.get(field).isEmpty() && inputs.get(field) != rePasswordString) {
                 inputValidator.setFieldError(field, "This field is required!"); // if so, send error
-                return; // is this needed?
+                errorFlag = true;
             } // not sure how this behaves in this for
         }
-
-        if(!inputValidator.doStringsMatch(passwordString, rePasswordString)){ // check if the retyped password matches
-            inputValidator.setFieldError(rePassword, "Passwords do not match!");
-            return;
+        if (!inputs.get(rePassword).isEmpty()) {
+            if (!inputValidator.doStringsMatch(passwordString, rePasswordString)) { // check if the retyped password matches
+                inputValidator.setFieldError(rePassword, "Passwords do not match!");
+                errorFlag = true;
+            }
+        } else {
+            errorFlag = true;
         }
 
+        if (!errorFlag)
+            this.makeCall(new User(usernameString, passwordString, emailString, firstNameString, lastNameString));
+    }
 
+    private void makeCall(User newUser) {
         Call<ResponseBody> call = RetrofitClient
                 .getInstance()
                 .getAPI()
-                .createUser(new User(usernameString, passwordString, emailString, firstNameString, lastNameString));
+                .createUser(newUser);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
