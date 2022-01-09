@@ -10,4 +10,6 @@
     <string name="info_card_title">Info</string>
     <string name="info_card_subtitle">About us</string>
     <string name="recyclingtip">RecyclingTip</string>
+    <string name="see_instructions">See instructions!</string>
+    <string name="scan_something">scan something</string>
 </resources>

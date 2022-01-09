@@ -6,7 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -52,9 +54,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-// Replace the contents of the container with the new fragment
         ft.replace(R.id.frame_main, new HomeFragment());
-// Complete the changes added above
+        if (getIntent().getStringExtra("Destination") != null) {
+            Log.e("extra:", getIntent().getStringExtra("Destination"));
+            if (getIntent().getStringExtra("Destination").equals("search")) {
+                ft.replace(R.id.frame_main, new SearchFragment());
+            }
+        }
         ft.commit();
 
 
@@ -67,6 +73,22 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.navigationHome);
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        if (getIntent().getStringExtra("Destination") != null) {
+            Log.e("extra:","ceva"+ getIntent().getStringExtra("Destination"));
+            if (getIntent().getStringExtra("Destination").equals("search")) {
+                ft.replace(R.id.frame_main, new SearchFragment());
+            }
+        }
+        ft.commit();
+    }
+
 }
 
 
