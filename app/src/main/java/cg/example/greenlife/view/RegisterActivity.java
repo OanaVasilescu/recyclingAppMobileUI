@@ -62,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
                 inputValidator.setFieldError(field, "This field is required!"); // if so, send error
                 errorFlag = true;
             } // not sure how this behaves in this for
-        }
+        } // TODO: validate here if username or email is taken
         if (!inputs.get(rePassword).isEmpty()) {
             if (!inputValidator.doStringsMatch(passwordString, rePasswordString)) { // check if the retyped password matches
                 inputValidator.setFieldError(rePassword, "Passwords do not match!");
@@ -90,11 +90,18 @@ public class RegisterActivity extends AppCompatActivity {
                 Boolean success;
                 success = response.isSuccessful();
 
+                int requestCode = response.code();
+
+
                 if (success) {
                     Toast.makeText(RegisterActivity.this, "Successfully registered. Please login", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 } else {
-                    Toast.makeText(RegisterActivity.this, "User already exists!", Toast.LENGTH_LONG).show();
+                    if (requestCode == 400)
+                        Toast.makeText(RegisterActivity.this, "Username or email is taken!", Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(RegisterActivity.this, "Server Error", Toast.LENGTH_LONG).show();
+
                 }
             }
 
