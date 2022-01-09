@@ -67,6 +67,8 @@ public class RegisterActivity extends AppCompatActivity {
             if (!inputValidator.doStringsMatch(passwordString, rePasswordString)) { // check if the retyped password matches
                 inputValidator.setFieldError(rePassword, "Passwords do not match!");
                 errorFlag = true;
+            } else {
+                errorFlag = false;
             }
         } else {
             errorFlag = true;
@@ -85,14 +87,10 @@ public class RegisterActivity extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                String s = "";
-                try {
-                    s = response.body().string();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Boolean success;
+                success = response.isSuccessful();
 
-                if (s.equals("SUCCESS")) {
+                if (success) {
                     Toast.makeText(RegisterActivity.this, "Successfully registered. Please login", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 } else {
