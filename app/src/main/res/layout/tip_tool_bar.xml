@@ -52,6 +52,7 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
+                android:id="@+id/recyclingTipText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Here we wil see the text of the recycling tip"

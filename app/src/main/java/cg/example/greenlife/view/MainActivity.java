@@ -6,18 +6,23 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import cg.example.greenlife.R;
+import cg.example.greenlife.api.RetrofitClient;
 import cg.example.greenlife.controller.AccountFragment;
 import cg.example.greenlife.controller.HomeFragment;
 import cg.example.greenlife.controller.SearchFragment;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -78,17 +83,58 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
         if (getIntent().getStringExtra("Destination") != null) {
-            Log.e("extra:","ceva"+ getIntent().getStringExtra("Destination"));
+            Log.e("extra:", "ceva" + getIntent().getStringExtra("Destination"));
             if (getIntent().getStringExtra("Destination").equals("search")) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.frame_main, new SearchFragment());
+                ft.commit();
             }
+        } else {
+            Log.e("dsd", "dd");
+            this.getRandomTip();
         }
-        ft.commit();
     }
 
+    private void getRandomTip() {
+        Call<ResponseBody> call = RetrofitClient
+                .getInstance()
+                .getAPI()
+                .getRandomTip();
+
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Boolean success;
+                success = response.isSuccessful();
+
+                int requestCode = response.code();
+
+
+                if (success) {
+                    this.setTipData(response);
+                } else {
+                    if (requestCode == 500)
+                        Toast.makeText(MainActivity.this, "Server error", Toast.LENGTH_LONG).show();
+                    else {
+                        Toast.makeText(MainActivity.this, "no tips", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+
+            private void setTipData(Response<ResponseBody> response) {
+                TextView text = findViewById(R.id.recyclingTipText);
+                assert response.body() != null;
+                ResponseBody tip = response.body(); //TODO: see how to get data
+            }
+        });
+    }
 }
 
 
