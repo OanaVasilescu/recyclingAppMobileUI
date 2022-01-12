@@ -26,5 +26,5 @@ public interface API {
     );
 
     @GET("tips/random")
-    Observable<Tip> getRandomTip();
+    Call<Tip> getRandomTip();
 }

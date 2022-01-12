@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Server error", Toast.LENGTH_LONG).show();
                     else {
                         if (requestCode == 400)
-                            Toast.makeText(LoginActivity.this, "ceva error", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Bad request" + response.body(), Toast.LENGTH_LONG).show();
                         else
                             Toast.makeText(LoginActivity.this, "Email or username does not exist or wrong password" + requestCode, Toast.LENGTH_LONG).show();
                     }

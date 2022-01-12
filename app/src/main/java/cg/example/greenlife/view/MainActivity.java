@@ -19,6 +19,7 @@ import cg.example.greenlife.api.RetrofitClient;
 import cg.example.greenlife.controller.AccountFragment;
 import cg.example.greenlife.controller.HomeFragment;
 import cg.example.greenlife.controller.SearchFragment;
+import cg.example.greenlife.model.Tip;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +28,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -83,29 +84,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-
         if (getIntent().getStringExtra("Destination") != null) {
-            Log.e("extra:", "ceva" + getIntent().getStringExtra("Destination"));
             if (getIntent().getStringExtra("Destination").equals("search")) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.frame_main, new SearchFragment());
                 ft.commit();
             }
-        } else {
-            Log.e("dsd", "dd");
+        }else {
+            Log.e("Main", "before get random tip");
             this.getRandomTip();
         }
     }
 
     private void getRandomTip() {
-        Call<ResponseBody> call = RetrofitClient
+        Call<Tip> call = RetrofitClient
                 .getInstance()
                 .getAPI()
                 .getRandomTip();
 
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<Tip>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<Tip> call, Response<Tip> response) {
                 Boolean success;
                 success = response.isSuccessful();
 
@@ -124,14 +123,15 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<Tip> call, Throwable t) {
                 Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
 
-            private void setTipData(Response<ResponseBody> response) {
+            private void setTipData(Response<Tip> response) {
                 TextView text = findViewById(R.id.recyclingTipText);
                 assert response.body() != null;
-                ResponseBody tip = response.body(); //TODO: see how to get data
+                Tip tip = response.body(); //TODO: see how to get data
+                text.setText(tip.getTipText());
             }
         });
     }
