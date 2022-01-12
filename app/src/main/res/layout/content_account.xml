@@ -50,7 +50,7 @@
                 <ImageView
                     android:id="@+id/emailImageView"
                     style="@style/profileDetailsImage"
-                    android:src="@android:drawable/ic_dialog_email" />
+                    android:src="@drawable/redblob" />
 
                 <TextView
                     style="@style/profileDetailsTextMain"
@@ -66,12 +66,12 @@
             </RelativeLayout>
 
 
-            <RelativeLayout style="@style/profileDetailsLayout">
-
+            <RelativeLayout style="@style/profileDetailsLayout"
+                android:layout_marginBottom="60dp">
                 <ImageView
                     android:id="@+id/addressImageView"
                     style="@style/profileDetailsImage"
-                    android:src="@android:drawable/ic_dialog_dialer" />
+                    android:src="@drawable/yellowblob" />
 
                 <TextView
                     style="@style/profileDetailsTextMain"
@@ -93,9 +93,10 @@
                 android:layout_marginTop="20dp">
 
                 <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/logoutBtn"
                     style="@style/profileStyledBackButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/logout" />
 

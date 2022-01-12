@@ -1,5 +1,6 @@
 package cg.example.greenlife.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import cg.example.greenlife.R;
 import cg.example.greenlife.model.Globals;
+import cg.example.greenlife.model.User;
+import cg.example.greenlife.view.LoginActivity;
+import cg.example.greenlife.view.RegisterActivity;
 
 public class AccountFragment extends Fragment {
     @Override
@@ -27,5 +31,14 @@ public class AccountFragment extends Fragment {
         accountName.setText(name);
         accountEmail.setText(Globals.currentUser.getEmail());
         accountUsername.setText(Globals.currentUser.getUsername());
+
+        view.findViewById(R.id.logoutBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Globals.setCurrentUser(new User());
+                startActivity(new Intent(view.getContext(), LoginActivity.class));
+            }
+        });
+
     }
 }
