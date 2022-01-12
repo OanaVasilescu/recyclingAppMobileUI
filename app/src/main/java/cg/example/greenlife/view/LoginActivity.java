@@ -12,6 +12,7 @@ import java.io.IOException;
 
 import cg.example.greenlife.R;
 import cg.example.greenlife.api.RetrofitClient;
+import cg.example.greenlife.model.Globals;
 import cg.example.greenlife.model.User;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -81,14 +82,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void makeLoginCall(User user) {
-        Call<ResponseBody> call = RetrofitClient
+        Call<User> call = RetrofitClient
                 .getInstance()
                 .getAPI()
                 .checkUser(user);
 
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
                 Boolean success;
                 success = response.isSuccessful();
 
@@ -96,6 +97,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 if (success) {
+                    User crtUser = response.body();
+                    Globals.currentUser = crtUser;
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else {
                     if (requestCode == 500)
@@ -110,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

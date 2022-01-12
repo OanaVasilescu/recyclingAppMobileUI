@@ -21,7 +21,7 @@ public interface API {
     );
 
     @POST("users/login")
-    Call<ResponseBody> checkUser(
+    Call<User> checkUser(
            @Body User user
     );
 

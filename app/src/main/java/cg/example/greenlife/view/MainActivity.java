@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment;
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigationMyProfile:
@@ -90,51 +89,10 @@ public class MainActivity extends AppCompatActivity {
                 ft.replace(R.id.frame_main, new SearchFragment());
                 ft.commit();
             }
-        }else {
-            Log.e("Main", "before get random tip");
-            this.getRandomTip();
         }
     }
 
-    private void getRandomTip() {
-        Call<Tip> call = RetrofitClient
-                .getInstance()
-                .getAPI()
-                .getRandomTip();
 
-        call.enqueue(new Callback<Tip>() {
-            @Override
-            public void onResponse(Call<Tip> call, Response<Tip> response) {
-                Boolean success;
-                success = response.isSuccessful();
-
-                int requestCode = response.code();
-
-
-                if (success) {
-                    this.setTipData(response);
-                } else {
-                    if (requestCode == 500)
-                        Toast.makeText(MainActivity.this, "Server error", Toast.LENGTH_LONG).show();
-                    else {
-                        Toast.makeText(MainActivity.this, "no tips", Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Tip> call, Throwable t) {
-                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-
-            private void setTipData(Response<Tip> response) {
-                TextView text = findViewById(R.id.recyclingTipText);
-                assert response.body() != null;
-                Tip tip = response.body(); //TODO: see how to get data
-                text.setText(tip.getTipText());
-            }
-        });
-    }
 }
 
 
