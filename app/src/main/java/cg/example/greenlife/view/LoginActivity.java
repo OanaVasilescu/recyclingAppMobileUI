@@ -44,13 +44,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
-
-        findViewById(R.id.btnOverwriteGoToHome).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            }
-        });
     }
 
     private void loginUser() {
@@ -98,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (success) {
                     User crtUser = response.body();
-                    Globals.currentUser = crtUser;
+                    Globals.setCurrentUser(crtUser);
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else {
                     if (requestCode == 500)

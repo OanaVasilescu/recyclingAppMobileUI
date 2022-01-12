@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 import cg.example.greenlife.R;
+import cg.example.greenlife.model.Globals;
 
 public class AccountFragment extends Fragment {
     @Override
@@ -17,6 +19,13 @@ public class AccountFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        TextView accountName = view.findViewById(R.id.accountName);
+        TextView accountEmail = view.findViewById(R.id.accountEmail);
+        TextView accountUsername = view.findViewById(R.id.accountUsername);
 
+        String name = Globals.currentUser.getFirstName() + Globals.currentUser.getLastName();
+        accountName.setText(name);
+        accountEmail.setText(Globals.currentUser.getEmail());
+        accountUsername.setText(Globals.currentUser.getUsername());
     }
 }
