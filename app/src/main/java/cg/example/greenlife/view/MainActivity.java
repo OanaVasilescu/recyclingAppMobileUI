@@ -6,28 +6,33 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import cg.example.greenlife.R;
+import cg.example.greenlife.api.RetrofitClient;
 import cg.example.greenlife.controller.AccountFragment;
 import cg.example.greenlife.controller.HomeFragment;
 import cg.example.greenlife.controller.SearchFragment;
+import cg.example.greenlife.model.Tip;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment;
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigationMyProfile:
@@ -78,16 +83,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
         if (getIntent().getStringExtra("Destination") != null) {
-            Log.e("extra:","ceva"+ getIntent().getStringExtra("Destination"));
             if (getIntent().getStringExtra("Destination").equals("search")) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.frame_main, new SearchFragment());
+                ft.commit();
             }
         }
-        ft.commit();
     }
+
 
 }
 

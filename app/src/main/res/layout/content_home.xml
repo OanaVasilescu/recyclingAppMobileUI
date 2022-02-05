@@ -27,12 +27,6 @@
             <include layout="@layout/reminder_card"/>
             <include layout="@layout/tutorial_card"/>
             <include layout="@layout/info_card"/>
-            <include layout="@layout/reminder_card"/>
-            <include layout="@layout/tutorial_card"/>
-            <include layout="@layout/info_card"/>
-            <include layout="@layout/reminder_card"/>
-            <include layout="@layout/tutorial_card"/>
-            <include layout="@layout/info_card"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

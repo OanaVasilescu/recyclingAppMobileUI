@@ -27,6 +27,7 @@
             android:background="@drawable/logo_charcoal_green"
             android:layout_gravity="center_horizontal"/>
         <TextView
+            android:id="@+id/moreInfoTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Text tip title"
@@ -35,6 +36,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"/>
         <TextView
+            android:id="@+id/moreInfoText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="More info abou this tip"

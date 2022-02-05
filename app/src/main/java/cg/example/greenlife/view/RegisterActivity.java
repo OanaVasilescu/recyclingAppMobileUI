@@ -62,11 +62,13 @@ public class RegisterActivity extends AppCompatActivity {
                 inputValidator.setFieldError(field, "This field is required!"); // if so, send error
                 errorFlag = true;
             } // not sure how this behaves in this for
-        }
+        } // TODO: validate here if username or email is taken
         if (!inputs.get(rePassword).isEmpty()) {
             if (!inputValidator.doStringsMatch(passwordString, rePasswordString)) { // check if the retyped password matches
                 inputValidator.setFieldError(rePassword, "Passwords do not match!");
                 errorFlag = true;
+            } else {
+                errorFlag = false;
             }
         } else {
             errorFlag = true;
@@ -85,18 +87,21 @@ public class RegisterActivity extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                String s = "";
-                try {
-                    s = response.body().string();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Boolean success;
+                success = response.isSuccessful();
 
-                if (s.equals("SUCCESS")) {
+                int requestCode = response.code();
+
+
+                if (success) {
                     Toast.makeText(RegisterActivity.this, "Successfully registered. Please login", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 } else {
-                    Toast.makeText(RegisterActivity.this, "User already exists!", Toast.LENGTH_LONG).show();
+                    if (requestCode == 400)
+                        Toast.makeText(RegisterActivity.this, "Username or email is taken!", Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(RegisterActivity.this, "Server Error", Toast.LENGTH_LONG).show();
+
                 }
             }
 

@@ -12,4 +12,8 @@
     <string name="recyclingtip">RecyclingTip</string>
     <string name="see_instructions">See instructions!</string>
     <string name="scan_something">scan something</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="developer_greenlife_com">developer@greenlife.com</string>
+    <string name="logout">Logout</string>
 </resources>
