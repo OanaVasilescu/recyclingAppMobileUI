@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import com.airbnb.lottie.LottieAnimationView;
 
 import cg.example.greenlife.R;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.transition.Slide;
 import androidx.transition.Transition;
 import androidx.transition.TransitionManager;
@@ -24,14 +26,20 @@ public class IntroductoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_introductory);
 
         ImageView logo = findViewById(R.id.splash_screen_logo);
-        ImageView loginRegisterBackground = findViewById(R.id.registerAndLoginBackground);
+        ImageView whiteBackground = findViewById(R.id.registerAndLoginBackgroundImageView);
+        ConstraintLayout loginRegisterBackground = findViewById(R.id.registerAndLoginBackground);
         LottieAnimationView lottieAnimationView = findViewById(R.id.lottie_earth_animation);
 
         loginRegisterBackground.setClipToOutline(true);
 
         logo.animate().translationY(-1500).setDuration(1000).setStartDelay(4000);
         lottieAnimationView.animate().translationY(-1900).setDuration(1000).setStartDelay(4000);
-        loginRegisterBackground.animate().scaleY(1150).setDuration(1000).setStartDelay(4000);
+        whiteBackground.animate().scaleY(1150).setDuration(1000).setStartDelay(4000).withEndAction(new Runnable() {
+            @Override
+            public void run() {
+                loginRegisterBackground.setVisibility(View.VISIBLE);
+            }
+        });
     }
 }
 

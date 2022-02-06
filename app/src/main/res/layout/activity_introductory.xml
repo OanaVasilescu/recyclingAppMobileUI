@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias=".6" />
 
     <ImageView
-        android:id="@+id/registerAndLoginBackground"
+        android:id="@+id/registerAndLoginBackgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/baby_powder_white"
@@ -40,8 +40,80 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:elevation="20dp"
-        />
+        android:elevation="20dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/registerAndLoginBackground"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:visibility="invisible"
+        android:background="@color/baby_powder_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:elevation="20dp">
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerId"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintHeight_percent=".7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayoutId"
+            />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/googleButtonId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/redblob"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPagerId"
+            android:elevation="5dp"
+            />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/facebookButtonId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dark_green_blob"
+            app:layout_constraintHorizontal_bias="1"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/googleButtonId"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPagerId"
+            android:elevation="5dp"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/twitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:elevation="5dp"
+            android:src="@drawable/dark_blue_blob"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/googleButtonId"
+            app:layout_constraintTop_toBottomOf="@id/viewPagerId" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_earth_animation"
