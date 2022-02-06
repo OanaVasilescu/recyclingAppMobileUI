@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.IntroductoryActivity">
+    tools:context=".view.IntroductoryActivity"
+    android:animateLayoutChanges="true">
 
     <ImageView
         android:id="@+id/green_start_color"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/green_start_color"
+        android:src="@drawable/green_background_leaves"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0"
         android:scaleType="centerCrop"
@@ -28,6 +29,19 @@
         app:layout_constraintStart_toStartOf="@+id/green_start_color"
         app:layout_constraintTop_toBottomOf="@+id/lottie_earth_animation"
         app:layout_constraintVertical_bias=".6" />
+
+    <ImageView
+        android:id="@+id/registerAndLoginBackground"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/baby_powder_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:elevation="20dp"
+        />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_earth_animation"
