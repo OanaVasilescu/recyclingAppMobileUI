@@ -16,4 +16,11 @@
     <string name="email">Email</string>
     <string name="developer_greenlife_com">developer@greenlife.com</string>
     <string name="logout">Logout</string>
+    <string name="email_or_username">Email or Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="rePassword">Retype password</string>
+    <string name="first_name">First name</string>
+    <string name="lastname">Last name</string>
 </resources>
