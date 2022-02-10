@@ -29,7 +29,6 @@
 
     <TextView
         android:id="@+id/go_to_instructions_btn"
-        style="@style/profileStyledBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/barcode_text"
