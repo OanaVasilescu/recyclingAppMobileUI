@@ -21,16 +21,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.RegisterActivity"
-            android:screenOrientation="nosensor" />
-        <activity
             android:name=".view.MainActivity"
             android:screenOrientation="nosensor" />
         <activity
             android:name=".view.InstructionsActivity"
             android:screenOrientation="nosensor" />
-        <activity android:name=".view.LoginActivity"
-            android:screenOrientation="nosensor">
-        </activity>
     </application>
 </manifest>

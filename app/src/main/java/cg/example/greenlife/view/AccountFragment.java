@@ -12,8 +12,6 @@ import androidx.fragment.app.Fragment;
 import cg.example.greenlife.R;
 import cg.example.greenlife.model.Globals;
 import cg.example.greenlife.model.User;
-import cg.example.greenlife.view.LoginActivity;
-import cg.example.greenlife.view.RegisterActivity;
 
 public class AccountFragment extends Fragment {
     @Override
@@ -36,7 +34,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Globals.setCurrentUser(new User());
-                startActivity(new Intent(view.getContext(), LoginActivity.class));
+                startActivity(new Intent(view.getContext(), IntroductoryActivity.class));
             }
         });
 

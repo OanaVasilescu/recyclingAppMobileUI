@@ -11,6 +11,7 @@
         app:layout_constraintVertical_bias=".3"
         app:layout_constraintHorizontal_bias=".5"
         android:hint="@string/email_or_username"
+        android:textColor="@color/sea_green"
         android:paddingStart="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -25,6 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/password"
+        android:textColor="@color/sea_green"
         android:paddingStart="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -38,6 +40,7 @@
         app:layout_constraintWidth_percent=".8"
         android:background="@drawable/input_bg"/>
     <Button
+        android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/login"
@@ -45,11 +48,11 @@
         android:textStyle="bold"
         android:background="@drawable/button_bg"
         app:layout_constraintWidth_percent=".8"
-        app:layout_constraintVertical_bias=".7"
+        app:layout_constraintVertical_bias="0.9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInput"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <TextView
