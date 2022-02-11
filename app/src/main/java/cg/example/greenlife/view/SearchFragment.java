@@ -1,4 +1,4 @@
-package cg.example.greenlife.controller;
+package cg.example.greenlife.view;
 
 import android.Manifest;
 import android.app.Activity;

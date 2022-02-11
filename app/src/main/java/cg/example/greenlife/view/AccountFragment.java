@@ -1,4 +1,4 @@
-package cg.example.greenlife.controller;
+package cg.example.greenlife.view;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -3,27 +3,15 @@ package cg.example.greenlife.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import cg.example.greenlife.R;
-import cg.example.greenlife.api.RetrofitClient;
-import cg.example.greenlife.controller.AccountFragment;
-import cg.example.greenlife.controller.HomeFragment;
-import cg.example.greenlife.controller.SearchFragment;
-import cg.example.greenlife.model.Tip;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
